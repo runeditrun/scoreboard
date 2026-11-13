@@ -1,0 +1,4 @@
+out/
+counts/company.local.json
+__pycache__/
+*.pyc

@@ -1,0 +1,50 @@
+{
+  "_note": "Targets the step scripts read. Changing a target is a reviewed commit on main; the run records this file's git commit in out/latest.json.",
+  "stage": {
+    "platform_origin": "https://billing-qualification.runeditrun.com",
+    "viewer_session_secret": "RER_STAGE_VIEWER_SESSION"
+  },
+  "identities": {
+    "_note": "Stand-in owner addresses are fleet-held test accounts, accepted only on the stage for steps 1-3 and the update proof. Any other owner matching a fleet pattern fails.",
+    "standin_owner_addresses": ["qa-inbox-38@runeditrun.com"],
+    "fleet_identity_patterns": ["@runeditrun\\.com$", "@rer\\.run$"]
+  },
+  "platform_default_host_pattern": "\\.rer\\.run$",
+  "steps": {
+    "1": {
+      "title": "A stand-in company installs HappyToHelp through its Business on the stage",
+      "product": "happytohelp",
+      "business_id": "5bbc22f0-5675-417b-94e6-b2c58eddcd3a",
+      "installation_id": "973a3be2-a218-49b8-8917-7fab46b68ff3",
+      "app_url": "https://happytohelp-eda52eea-stage.rer.run",
+      "expected_version": "0.4.24",
+      "expected_commit": "6acf8a4c50dfeb94ca9ab705b1e386d282ea8e0f"
+    },
+    "2": {
+      "title": "That company attaches its own addresses",
+      "product": "lamp",
+      "business_id": "587b9c2a-18bd-4f89-a579-40198794ab30",
+      "installation_id": "23475464-2e65-4a6f-baf1-e77da0054d36",
+      "app_url": "https://lamp-079ad0ef-stage.rer.run",
+      "company_addresses": []
+    },
+    "3": {
+      "title": "That company imports legacy history through the product",
+      "uses_step": "1"
+    },
+    "P2": {
+      "title": "One update taken by a click on an installed product, with no fleet hands between click and Live",
+      "product": "lamp",
+      "business_id": "587b9c2a-18bd-4f89-a579-40198794ab30",
+      "installation_id": "23475464-2e65-4a6f-baf1-e77da0054d36",
+      "app_url": "https://lamp-079ad0ef-stage.rer.run",
+      "minimum_version": "1.11.15"
+    }
+  },
+  "event_log": {
+    "_note": "Event types are matched by these patterns. Platform main 86030a5 writes only update.available for updates; the click and Live types must match what the platform writes once it records them.",
+    "click_type": "^update\\.(?!available$)",
+    "live_type": "^(update|delivery|release)\\.[a-z_.]*(live|published|verified|applied)$",
+    "repair_type": "(repair|retry|manual|override)"
+  }
+}

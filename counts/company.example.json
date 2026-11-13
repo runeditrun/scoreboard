@@ -1,0 +1,8 @@
+{
+  "_note": "Copy to company.local.json (git-ignored). The public repository never names the company.",
+  "company_1": {
+    "name": "<company name>",
+    "business_id": "<production Business id>",
+    "happytohelp_installation_id": null
+  }
+}

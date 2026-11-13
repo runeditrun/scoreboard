@@ -1,0 +1,48 @@
+name: scoreboard
+
+# Hourly, and on a push to main. No pull_request, pull_request_target or manual triggers:
+# only reviewed code on main ever runs with the read-only secret.
+on:
+  schedule:
+    - cron: '17 * * * *'
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scoreboard
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Run the scoreboard
+        env:
+          # Read-only: a session of a stage platform user holding only the viewer role on the
+          # named installations. Absent, the platform-record checks print NOT-MEASURED.
+          RER_STAGE_VIEWER_SESSION: ${{ secrets.RER_STAGE_VIEWER_SESSION }}
+        run: ./run.sh
+      - name: Summary
+        if: always()
+        run: |
+          python3 -c "
+          import json; d = json.load(open('out/latest.json'))
+          print('## Scoreboard', d['run_utc']); print()
+          print('| Step | Result | Reason | Evidence |'); print('|---|---|---|---|')
+          [print(f\"| {s['step']} | {s['status']} | {s['reason']} | {s['evidence']} |\") for s in d['steps']]
+          print(); print('| Count | Value | Note | Source |'); print('|---|---|---|---|')
+          [print(f\"| {c['count']} {c['name']} | {c['value']} | {c['note']} | {c['source']} |\") for c in d['counts']]
+          " >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with:
+          name: scoreboard-${{ github.run_id }}
+          path: out/
+          retention-days: 90

@@ -1,0 +1,21 @@
+{
+  "_source": "Retrospective of 13 Nov 2026, first_seven_days row 12. Dates are 2026, UTC. Company names are replaced by their scoreboard alias.",
+  "yields": "When work competes for the fleet tooling lane, the stage or the owner: ladder proofs and cutovers first, then the scoreboard, then tooling changes, then the experiment.",
+  "dates": [
+    {"date": "2026-11-14", "item": "Outside tester list to the owner"},
+    {"date": "2026-11-14", "item": "Version-on-health report"},
+    {"date": "2026-11-15", "item": "HappyToHelp import proof on the stage"},
+    {"date": "2026-11-16", "item": "Production carries the proven steps"},
+    {"date": "2026-11-16", "end": "2026-11-17", "item": "Company 1 install (the owner's 20-minute sitting) and data"},
+    {"date": "2026-11-17", "item": "Tester sessions"},
+    {"date": "2026-11-18", "item": "Mail and status-page cutovers begin"},
+    {"date": "2026-11-18", "item": "Experiment scored", "added": true},
+    {"date": "2026-11-20", "item": "Widget cutover"},
+    {"date": "2026-11-25", "item": "Pause date (held only in prose)"},
+    {"date": "2026-11-27", "item": "Legacy desk retired"},
+    {"date": "2026-11-28", "item": "Read the four counts", "added": true},
+    {"date": "2026-12-01", "end": "2026-12-02", "item": "Ten usable banked resets expire"},
+    {"date": "2026-12-02", "item": "Zendesk retired"},
+    {"date": "2026-12-13", "item": "Seven more banked resets expire"}
+  ]
+}
