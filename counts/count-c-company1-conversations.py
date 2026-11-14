@@ -3,7 +3,8 @@
 
 Company 1 is named only in counts/company.local.json (git-ignored; see company.example.json).
 Nothing printed here names the company. A conversation counts only when it was handled in a seed
-installation the platform installed for company 1's own Business.
+installation the platform installed for company 1's own Business, and only when it carries at least
+one customer message (empty conversation records do not count; strategy ruling 14 Nov).
 """
 import json, os, sys
 here = os.path.dirname(os.path.abspath(__file__))
