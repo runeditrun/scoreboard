@@ -4,7 +4,7 @@ name: scoreboard
 # only reviewed code on main ever runs with the read-only secret.
 on:
   schedule:
-    - cron: '17 * * * *'
+    - cron: '23 * * * *'
   push:
     branches: [main]
 
