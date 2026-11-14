@@ -14,11 +14,11 @@
     "1": {
       "title": "A stand-in company installs HappyToHelp through its Business on the stage",
       "product": "happytohelp",
-      "business_id": "5bbc22f0-5675-417b-94e6-b2c58eddcd3a",
-      "installation_id": "973a3be2-a218-49b8-8917-7fab46b68ff3",
-      "app_url": "https://happytohelp-eda52eea-stage.rer.run",
-      "expected_version": "0.4.24",
-      "expected_commit": "6acf8a4c50dfeb94ca9ab705b1e386d282ea8e0f"
+      "business_id": "881fd0c5-3c3a-468e-96cf-e0965e818d56",
+      "installation_id": "1fca767f-6ee2-4b3e-b571-57656442c82d",
+      "app_url": "https://happytohelp-d8ed2eec-stage.rer.run",
+      "expected_version": "0.4.25",
+      "expected_commit": "333af4b0580c4284616783f1d79fcc9aad3aefc5"
     },
     "2": {
       "title": "That company attaches its own addresses",
