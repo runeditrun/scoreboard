@@ -20,8 +20,8 @@ run_one() { # kind id script [args]: a script that crashes or prints no line is 
   echo "$line"
 }
 run_utc=$(utc)
-for id in 1 2 3 p2; do
-  run_one STEP "$(echo $id | tr p P)" "steps/step-$id.py"
+for id in 1 2 3 p2 change; do
+  run_one STEP "$(echo $id | tr a-z A-Z)" "steps/step-$id.py"
 done | tee "$work/steps.txt"
 {
   run_one COUNT a counts/count-a-outside-use.py

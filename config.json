@@ -39,6 +39,14 @@
       "installation_id": "23475464-2e65-4a6f-baf1-e77da0054d36",
       "app_url": "https://lamp-079ad0ef-stage.rer.run",
       "minimum_version": "1.11.15"
+    },
+    "CHANGE": {
+      "title": "A change requested on a hosted Lamp reaches the live page the first time, timed from request to Live",
+      "product": "lamp",
+      "business_id": null,
+      "installation_id": null,
+      "app_url": null,
+      "since": null
     }
   },
   "event_log": {

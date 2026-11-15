@@ -4,8 +4,8 @@ A scoreboard the fleet's own sessions do not write. One short script per ladder 
 outcome from outside, through public doors and one read-only credential, and four dated counts sit
 beside them. Each run prints PASS, FAIL or NOT-MEASURED per step and writes `out/latest.json`.
 
-The ladder is section 8 of the platform plan of record (12 Nov 2026). Steps 1-3 and the update proof
-(P2) have scripts. Rungs 4-8 (production carries 1-3, company 1's Business shows its products, its
+The ladder is section 8 of the platform plan of record (12 Nov 2026). Steps 1-3, the update proof
+(P2) and the change proof (CHANGE) have scripts. Rungs 4-8 (production carries 1-3, company 1's Business shows its products, its
 data is in, cutovers pressed, a second company repeats it) have none yet.
 
 ## Rules every script keeps
@@ -29,6 +29,7 @@ data is in, cutovers pressed, a second company repeats it) have none yet.
 | 2 | Every company address named in `steps.2.company_addresses` is not a platform default host (`*.rer.run`), answers `/health` ok over verified TLS, and serves the same release receipt as the installation's platform address (so a hand-built copy on the name cannot pass). With the credential: Business and owner as step 1. No named address is FAIL. | That no other company can claim the name, that Remove works, held-out checks H1-H13, Lamp's stored address and Pre-launch state. The platform's domain list is owner-only, so attachment itself is not read. |
 | 3 | FAIL while step 1 fails (there is nothing to import into). Otherwise NOT-MEASURED: the import result lives inside HappyToHelp behind owner sign-in and has no read-only door. | Row counts, attachments, resume without repeats. |
 | P2 | The product's `/health` states a version at or above `minimum_version` (the release that puts the version on health). With the credential: Business and owner as step 1, and the platform event log holds an update click by the installation owner followed by a Live event with no person and no repair-shaped event in between (`event_log` patterns in `config.json`). A repaired update is FAIL with the repair named. | The content of the edit; anything outside the platform event log. |
+| CHANGE | A change goes live the first time. The product answers `/health` ok. With the credential: the installation is under the named Business with an acceptable owner, and its newest ordinary change since `steps.CHANGE.since` is published with a verified release receipt, with no retry or failure event in its history (a second preview build or publish request, a fix round, a recheck or rebuild, a checks rerun, a failed preview or unreleased build) and no Ask-for-it-again change. The line gives request-to-Live minutes and publish-click-to-Live minutes. | How the change was asked for (browser, rer or an agent tool), the content of the edit. |
 
 Platform main (`86030a5`, 14 Nov) writes only `update.available` to the installation event log for
 updates. P2 cannot pass until the platform records the click and Live there; the `event_log` patterns
