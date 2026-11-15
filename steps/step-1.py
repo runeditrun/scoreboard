@@ -40,5 +40,5 @@ if not current.get('verifiedAt'):
     score.step('1', 'FAIL', 'platform records no verified release (not Live)', f'installation:{inst}')
 if current.get('id') != digest:
     score.step('1', 'FAIL', 'product serves a release the platform does not record as current', f'installation:{inst}')
-version = health.get('buildVersion') or (health.get('deployment') or {}).get('sourceSha')
+version = health.get('buildVersion') or (health.get('release') or {}).get('version') or (health.get('deployment') or {}).get('sourceSha')
 score.step('1', 'PASS', f"{t['product']} {version} Live under the named Business, verified {current['verifiedAt']}", f'installation:{inst}')

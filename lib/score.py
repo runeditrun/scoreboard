@@ -72,10 +72,11 @@ def product_health(app_url, expected_version=None, expected_commit=None, minimum
         return f'product does not answer /health ({error})', None
     if body.get('ok') is not True and body.get('status') != 'ok':
         return 'product /health is not ok', body
-    version = body.get('buildVersion') or body.get('version')
-    commit = (body.get('deployment') or {}).get('sourceSha')
+    release = body.get('release') if isinstance(body.get('release'), dict) else {}
+    version = body.get('buildVersion') or body.get('version') or release.get('version')
+    commit = (body.get('deployment') or {}).get('sourceSha') or release.get('sourceCommit')
     if not version and not commit:
-        return 'product /health states no version (buildVersion and deployment.sourceSha are empty)', body
+        return 'product /health states no version (buildVersion, release.version and deployment.sourceSha are empty)', body
     if expected_version and version != expected_version and commit != expected_commit:
         return f'product /health states version {version or commit}, expected {expected_version}', body
     if minimum_version and not (version and _ver(version) >= _ver(minimum_version)):

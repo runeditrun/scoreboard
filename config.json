@@ -17,8 +17,8 @@
       "business_id": "881fd0c5-3c3a-468e-96cf-e0965e818d56",
       "installation_id": "1fca767f-6ee2-4b3e-b571-57656442c82d",
       "app_url": "https://happytohelp-d8ed2eec-stage.rer.run",
-      "expected_version": "0.4.25",
-      "expected_commit": "333af4b0580c4284616783f1d79fcc9aad3aefc5"
+      "expected_version": "0.4.28",
+      "expected_commit": "41fb40246d2e69f928be397c48d952d147c39160"
     },
     "2": {
       "title": "That company attaches its own addresses",
